@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>660494757646-q0ef9r75pvd8u4qc22dg6u1vd4p1gfi3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.660494757646-q0ef9r75pvd8u4qc22dg6u1vd4p1gfi3</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>660494757646-vf382irtb6ovrplug7270e7u15l313c8.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB6eQkJNOYmPWXpqHr-ZWetVhGwK5LdFj0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>660494757646</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.snEditLessons</string>
+	<key>PROJECT_ID</key>
+	<string>speaknow-8babc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>speaknow-8babc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:660494757646:ios:8b2cb5db5e1dacd7dc715f</string>
+	<key>DATABASE_URL</key>
+	<string>https://speaknow-8babc-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>
