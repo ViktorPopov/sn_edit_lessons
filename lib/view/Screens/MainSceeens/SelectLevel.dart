@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:sn_edit_lessons/view/Screens/MainSceeens/SelextEx.dart';
 
 class SelectLevel extends StatefulWidget {
   final launguage;
@@ -41,10 +42,10 @@ class _SelectLevelState extends State<SelectLevel> {
                     var anketss = snapshot.data!.docs[index];
                     return GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SelectLevel(launguage: anketss.get('Language'))));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => SelectEx(level: anketss.get('Level').toString(), launguage: widget.launguage,)));
                       },
                       child: Card(
-                        child: Text('Уровень: ${anketss.get('Level')}'),
+                        child: Text('Уровень: ${anketss.get('Level').toString()}'),
                       ),
                     );
                   }),
