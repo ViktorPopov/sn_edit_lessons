@@ -32,7 +32,7 @@ final String answer_student;
     text_student.hashCode ^
     answer_student.hashCode;
   }
-  Microex copyWith({
-    MicroexID? id,
-})
-}
+//   Microex copyWith({
+//     MicroexID? id,
+// })
+ }
