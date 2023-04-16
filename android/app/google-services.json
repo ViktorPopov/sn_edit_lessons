@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "660494757646",
+    "firebase_url": "https://speaknow-8babc-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "speaknow-8babc",
+    "storage_bucket": "speaknow-8babc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660494757646:android:c966eb7b3cff049adc715f",
+        "android_client_info": {
+          "package_name": "com.example.sn_edit_lessons"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660494757646-dac0ncn64vk8amgr6u8j9i0r1nn1vg04.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvWz6uWKM5IWaqdoNi7P8gE4qIGBo0uik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660494757646-dac0ncn64vk8amgr6u8j9i0r1nn1vg04.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "660494757646-q0ef9r75pvd8u4qc22dg6u1vd4p1gfi3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.snEditLessons"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660494757646:android:d2fff2ed5dfd6407dc715f",
+        "android_client_info": {
+          "package_name": "vik.popo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660494757646-vf382irtb6ovrplug7270e7u15l313c8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vik.popo",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "660494757646-dac0ncn64vk8amgr6u8j9i0r1nn1vg04.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvWz6uWKM5IWaqdoNi7P8gE4qIGBo0uik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660494757646-dac0ncn64vk8amgr6u8j9i0r1nn1vg04.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "660494757646-q0ef9r75pvd8u4qc22dg6u1vd4p1gfi3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.snEditLessons"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

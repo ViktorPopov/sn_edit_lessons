@@ -41,7 +41,7 @@ class _LanguageListScreenState extends State<LanguageListScreen> {
                     var anketss = snapshot.data!.docs[index];
                     return GestureDetector(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => SelectLevel(launguage: '')));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SelectLevel(launguage: anketss.get('Language'))));
                         },
                         child: Card(
                           child: Text('${anketss.get('Language')}'),

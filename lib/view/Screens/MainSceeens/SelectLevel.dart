@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class SelectLevel extends StatefulWidget {
@@ -12,14 +13,43 @@ class _SelectLevelState extends State<SelectLevel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.launguage),),
-        body: ListView.builder(itemBuilder: (context, index) {
-      return GestureDetector(child: Card(child: Row(children: [
-        Text('Level'),
-      ],)),
-        //onTap: Navigator.push(context, route),
-      );
-    },
-    itemCount: 10,));
+      body: StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection('speak_now_lessons').doc(widget.launguage).collection('Levels')
+              .snapshots(),
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError) {
+              return const Text('что то пошло не так');
+            }
+
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Material(
+                child: Center(
+                  child: CircularProgressIndicator(
+                    color: Colors.red,
+                  ),
+                ),
+              );
+            }
+
+            return SizedBox(
+              height: MediaQuery.of(context).size.height / 1.7,
+              child: ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (context, index) {
+                    var anketss = snapshot.data!.docs[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => SelectLevel(launguage: anketss.get('Language'))));
+                      },
+                      child: Card(
+                        child: Text('Уровень: ${anketss.get('Level')}'),
+                      ),
+                    );
+                  }),
+            );
+          }),
+    );
   }
 }
