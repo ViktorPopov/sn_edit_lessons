@@ -1,32 +1,33 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:sn_edit_lessons/view/Screens/MainSceeens/SelectMicroExOrInfo.dart';
 
-class SelectEx extends StatefulWidget {
+import 'CRUD/CreateMEX.dart';
+
+class SelectMicroEx extends StatefulWidget {
   final level;
   final launguage;
-  const SelectEx({Key? key, required this.level, required this.launguage}) : super(key: key);
+  final ex;
+  const SelectMicroEx({Key? key, required this.level, required this.launguage, required this.ex}) : super(key: key);
 
   @override
-  State<SelectEx> createState() => _SelectLevelState();
+  State<SelectMicroEx> createState() => _SelectLevelState();
 }
 
-class _SelectLevelState extends State<SelectEx> {
+class _SelectLevelState extends State<SelectMicroEx> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance
-              .collection('speak_now_lessons').doc(widget.launguage).collection('Levels').doc('Level' + widget.level).collection('Exercise')
+              .collection('speak_now_lessons').doc(widget.launguage).collection('Levels').doc('level'+widget.level).collection('Exercise').doc(widget.ex).collection('micro_exercise')
               .snapshots(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) {
               return const Text('что то пошло не так');
             }
-
+            print(snapshot.data);
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Material(
                 child: Center(
@@ -45,11 +46,20 @@ class _SelectLevelState extends State<SelectEx> {
                     var anketss = snapshot.data!.docs[index];
                     return GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SelectMicroEx(level: widget.level, launguage: widget.launguage, ex: 'Ex${anketss.get('exercise_number').toString()}',)));
-           //             Navigator.push(context, MaterialPageRoute(builder: (context) => SelectLevel(level: anketss.get('Level '))));
                       },
                       child: Card(
-                        child: Text('Упр: ${anketss.get('exercise_number').toString()}'),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+
+                            Text('тип: ${anketss.get('type').toString()}' ),
+                            Text('порядковый номер: ${anketss.get('index').toString()}' ),
+                            Text('Текст Учителя: ${anketss.get('text_teacher').toString()}'),
+                            Text('Текст студента ${anketss.get('text_student').toString()}'),
+                            Text('Ответ студента: ${anketss.get('answer_student').toString()}'),
+                          ],
+                        )
+
                       ),
                     );
                   }),
