@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:sn_edit_lessons/view/Screens/MainSceeens/CRUD/CreateLevel.dart';
 import 'package:sn_edit_lessons/view/Screens/MainSceeens/SelectLevel.dart';
 
 class LanguageListScreen extends StatefulWidget {
@@ -13,6 +14,13 @@ class _LanguageListScreenState extends State<LanguageListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          TextButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => CreateLevel()));
+          }, child: Text('добавить язык')),
+        ],
+      ),
       body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance
               .collection('speak_now_lessons')
@@ -44,7 +52,13 @@ class _LanguageListScreenState extends State<LanguageListScreen> {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => SelectLevel(launguage: anketss.get('Language'))));
                         },
                         child: Card(
-                          child: Text('${anketss.get('Language')}'),
+                          child: Column(children: [
+                            Padding(padding: EdgeInsets.symmetric(vertical: 15),child:
+                            Text('${anketss.get('Language')}'),),
+
+                          ],
+                          )
+
                               ),
                         );
                   }),

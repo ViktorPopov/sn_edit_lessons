@@ -32,11 +32,11 @@ class _CreateMEXState extends State<CreateMEX> {
           ),
           TextButton(onPressed: () async
           {
-            _firebaseFirestore.collection('speak_now_lessons').doc(widget.launguage).collection('Levels').doc('level'+widget.level).collection('Exercise').doc(widget.ex).collection('micro_exercise')
+            _firebaseFirestore.collection('speak_now_lessons').doc(widget.launguage).collection('Levels').doc(widget.level).collection('Exercise').doc(widget.ex).collection('micro_exercise')
                .add({
               'text_student': _STextController.text,
-              'text_teacher': _TTextController,
-              "answer_student": _answerController,
+              'text_teacher': _TTextController.text,
+              "answer_student": _answerController.text,
               'index': 1,
               'type': 'ex',
             });

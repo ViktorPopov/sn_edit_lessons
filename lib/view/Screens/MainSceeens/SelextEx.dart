@@ -49,8 +49,17 @@ class _SelectLevelState extends State<SelectEx> {
            //             Navigator.push(context, MaterialPageRoute(builder: (context) => SelectLevel(level: anketss.get('Level '))));
                       },
                       child: Card(
-                        child: Text('Упр: ${anketss.get('exercise_number').toString()}'),
+                          child: Column(children: [
+                            Padding(padding: EdgeInsets.symmetric(vertical: 15),child:
+                                Text('Упр: ${anketss.get('exercise_number').toString()}'),
+                          ),
+
+                          ],
+                          )
+
                       ),
+                    //    child: Text('Упр: ${anketss.get('exercise_number').toString()}'),
+
                     );
                   }),
             );

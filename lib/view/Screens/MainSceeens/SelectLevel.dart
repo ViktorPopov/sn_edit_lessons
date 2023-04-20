@@ -16,7 +16,9 @@ class _SelectLevelState extends State<SelectLevel> {
     return Scaffold(
       body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance
-              .collection('speak_now_lessons').doc(widget.launguage).collection('Levels')
+              .collection('speak_now_lessons')
+              .doc(widget.launguage)
+              .collection('Levels')
               .snapshots(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -42,11 +44,23 @@ class _SelectLevelState extends State<SelectLevel> {
                     var anketss = snapshot.data!.docs[index];
                     return GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SelectEx(level: anketss.get('Level').toString(), launguage: widget.launguage,)));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SelectEx(
+                                      level: anketss.get('Level').toString(),
+                                      launguage: widget.launguage,
+                                    )));
                       },
                       child: Card(
-                        child: Text('Уровень: ${anketss.get('Level').toString()}'),
-                      ),
+                          child: Column(
+                        children: [
+                          Padding(
+                              padding: EdgeInsets.symmetric(vertical: 15),
+                              child: Text(
+                                  'Уровень: ${anketss.get('Level').toString()}')),
+                        ],
+                      )),
                     );
                   }),
             );

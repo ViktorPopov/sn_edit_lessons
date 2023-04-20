@@ -17,10 +17,16 @@ class _SelectLevelState extends State<SelectMicroEx> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+    appBar: AppBar(
+      actions: [
+        IconButton(onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CreateMEX(launguage: widget.launguage, level: 'Level${widget.level}', ex: widget.ex)));
+        }, icon: Icon(Icons.add)),
+      ],
+    ),
       body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance
-              .collection('speak_now_lessons').doc(widget.launguage).collection('Levels').doc('level'+widget.level).collection('Exercise').doc(widget.ex).collection('micro_exercise')
+              .collection('speak_now_lessons').doc(widget.launguage).collection('Levels').doc('Level'+widget.level).collection('Exercise').doc('${widget.ex}').collection('micro_exercise')
               .snapshots(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -45,7 +51,8 @@ class _SelectLevelState extends State<SelectMicroEx> {
                   itemBuilder: (context, index) {
                     var anketss = snapshot.data!.docs[index];
                     return GestureDetector(
-                      onTap: () {
+                      onDoubleTap: () {
+
                       },
                       child: Card(
                         child: Column(
